@@ -1,11 +1,12 @@
 from django.core.validators import MinLengthValidator, MinValueValidator
-from django.views.generic.dates import timezone_today
 from .base_model import BaseModel
 from django.db import models
 from strava.enumerations import Genero
+from django.utils.timezone import now
+# from django.views.generic.dates import timezone_today
 
 
-class Record(BaseModel):
+class Perfil(BaseModel):
     email = models.EmailField(
         max_length=100,
         validators=[MinLengthValidator(10)],
@@ -51,7 +52,7 @@ class Record(BaseModel):
     )
     genero = models.CharField(
         max_length=20,
-        validators=[MinLengthValidator(5)],
+        validators=[MinLengthValidator(3)],
         null=False, blank=False,
         choices=Genero,
         help_text="Selecione o seu gênero",
@@ -77,7 +78,7 @@ class Record(BaseModel):
     )
     premium = models.BooleanField(default=False)
     membro_desde = models.DateField(
-        default=timezone_today()
+        default=now
     )
 
     def __str__(self):

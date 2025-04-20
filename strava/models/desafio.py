@@ -14,6 +14,7 @@ class Desafio(BaseModel):
     data_inicio = models.DateField()
     data_fim = models.DateField()
     tipo_esporte = models.CharField(
+        max_length=20,
         choices=TipoEsporte
     )
     visao_geral = models.TextField()

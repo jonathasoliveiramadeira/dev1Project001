@@ -5,3 +5,6 @@ from .atividade import *
 from .clube import *
 from .desafio import *
 from .equipamento import *
+from .desafio_atividades import *
+from .desafio_atividades_tempo import *
+from .desafio_tempo import *
