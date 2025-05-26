@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block main %}
+{% if results %}
+  <div class="lis-group">
+    {% for model, result in results.items %}
+      {% for link, data in result %}
+        <a href="{{ link }}"
+           class="list-group-item list-group-item-action text-left"
+           aria-current="true">
+            <div class="d-flex w-100 justify-content-between text-left">
+                 <h5 class="mb-1">Nome: {{ data.name }}</h5>
+              <small>{{ model }}</small>
+            </div>
+            <p class="mb-1">Dados: {{ data.birth_date }}</p>
+        </a>
+      {% endfor %}
+    {% endfor %}
+  </div>
+{% else %}
+  <h2>Nenhum resultado atendeu a busca por '{{ query }}'</h2>
+{% endif %}
+{% endblock main %}

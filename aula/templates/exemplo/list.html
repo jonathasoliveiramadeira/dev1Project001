@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block main %}
+{% block title %}
+    <h1>LISTA DE PESSOAS</h1>
+{% endblock title %}
+{% if persons %}
+    <table class="table table-hover">
+        <thead>
+            <th>Nome</th>
+            <th>Data de Nascimento</th>
+            <th>CPF</th>
+        </thead>
+        <tbody>
+        {% for person in persons %}
+            <tr>
+                <td>{{ person.name }}</td>
+                <td>{{ person.birth_date }}</td>
+                <td>{{ person.cpf }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+{% endblock main %}

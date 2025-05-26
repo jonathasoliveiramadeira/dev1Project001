@@ -5,6 +5,7 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from .base_model import BaseModel
 from aula.validators import validate_par
+from ..managers.person import PersonManager
 
 
 class Person(BaseModel):
@@ -22,6 +23,8 @@ class Person(BaseModel):
         verbose_name="CPF",
         validators=[validate_par],
     )
+
+    objects = PersonManager()
 
     # Qualquer coisa que eu queira altera antes de salvar
     def save(self, *args, **kargs):

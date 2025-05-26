@@ -1,2 +1,2 @@
 from .estaticas import *
-#from .exemplo import *
+from .exemplo import *

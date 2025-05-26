@@ -12,4 +12,9 @@ urlpatterns = [
     #path('classe/teste', PrimeiraView.as_view(), name="Primera_view_class"),
     #path('classe/saudacao', SaudacaoView.as_view(), name="saudacao_view_clas"),
     #path('funcao/<str:name>', NomeView.as_view(), name="saudacao"),
+
+    path('exemplo/function/', views_funcoes.exemplo_list,
+         name="exemplo_function_list"),
+    path('exemplo/classe/', ExemploListView.as_view(),
+         name="exemplo_classe_list"),
 ]
