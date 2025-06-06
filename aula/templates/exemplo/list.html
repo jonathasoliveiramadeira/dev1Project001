@@ -8,8 +8,8 @@
     <table class="table table-hover">
         <thead>
             <th>Nome</th>
-            <th>Data de Nascimento</th>
-            <th>CPF</th>
+            <th>Ações funções</th>
+            <th>Ações Classes</th>
         </thead>
         <tbody>
         {% for person in persons %}
@@ -17,6 +17,39 @@
                 <td>{{ person.name }}</td>
                 <td>{{ person.birth_date }}</td>
                 <td>{{ person.cpf }}</td>
+                <td>
+                    <div>
+                        <a class="btn btn-outline-secondary btn-lg" role="button"
+                           data-bs-toggle="toottip" data-bs-placement="top"
+                           title="Detalhar com funções"
+                           href="{% url 'aula:exemplo_function_read' person.id %}">
+                            <i class="bi bi-card-list"></i> Read </a>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <a class="btn btn-outline-secondary btn-lg" role="button"
+                           data-bs-toggle="toottip" data-bs-placement="top"
+                           title="Detalhar com Classe"
+                           href="{% url 'aula:exemplo_classe_read' person.id %}">
+                            <i class="bi bi-card-list"></i> Read </a>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <a class="btn btn-outline-secondary btn-lg" role="button"
+                           data-bs-toggle="toottip" data-bs-placement="top"
+                           title="Deletar com Função"
+                           href="{% url 'aula:exemplo_function_delete' person.id %}">
+                            <i class="bi bi-card-list"></i> Deletar </a>
+
+                        <a class="btn btn-outline-secondary btn-lg" role="button"
+                           data-bs-toggle="toottip" data-bs-placement="top"
+                           title="Deletar com Função"
+                           href="{% url 'aula:exemplo_classe_delete' person.id %}">
+                            <i class="bi bi-card-list"></i> Deletar classe </a>
+                    </div>
+                </td>
             </tr>
         {% endfor %}
         </tbody>

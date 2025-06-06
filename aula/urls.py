@@ -17,4 +17,12 @@ urlpatterns = [
          name="exemplo_function_list"),
     path('exemplo/classe/', ExemploListView.as_view(),
          name="exemplo_classe_list"),
+    path('exemplo/function/read/<int:pk>/', views_funcoes.exemplo_detail,
+         name="exemplo_function_read"),
+    path('exemplo/classe/read/<int:pk>/', ExemploDetailView.as_view(),
+         name="exemplo_classe_read"),
+    path('exemplo/function/delete/<int:person_id>', views_funcoes.delete,
+         name="exemplo_function_delete"),
+    path('exemplo/classe/delete/<int:pk>', ExemploDeleteView.as_view(),
+         name="exemplo_classe_delete"),
 ]

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+  {% block title %}<h1>{{ exemplo.nome|capfirst }}</h1>{%endblock title %}
+  {% block main %}
+    <div class="content">
+      <div class="row">
+        <strong>CPF: </strong> <p>{{ exemplo.cpf }}</p>
+        <strong>Nome:</strong><p>{{ exemplo.name }}</p>
+      </div>
+    </div>
+    <div>
+      <a class="btn btn-outline-light btn-lg" role="button"
+         href="{% url 'aula:exemplo_classe_list' %}"><i
+            class="bi bi-arrow-left"></i>Voltar</a>
+    </div>
+{% endblock main %}

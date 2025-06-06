@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}<h1>{{ exemplo.nome|capfirst }}</h1>{%endblock title %}
+{% block main %}
+  <div class="content">
+    <div class="row">
+      <strong>CPF: </strong> <p>{{ person.cpf }}</p>
+      <strong>Nome:</strong><p>{{ person.name }}</p>
+    </div>
+  </div>
+  <div>
+    <h3>Esta ação é irreversível. Tem certeza que quer deletar?</h3>
+    <form id="person"
+      href = "{% url 'aula:exemplo_classe_delete' person.id %}"
+          method="post">
+      {% csrf_token %}
+      <input type="hidden" id="person_id" name="person_id"
+             value="{{ person.id }}">
+      <a class="btn btn_outline-secondary btn-lg" role="button"
+         href="{% url 'aula:exemplo_classe_list' %}"
+              form="person" value="Deletar"><i class="bi bi-x-lg"></i>
+      Sim, deletar</a>
+      <a class="btn btn-outline-secondary btn-lg" role="button"
+       href="{% url 'aula:exemplo_classe_list' %}"><i
+          class="bi bi-x-lg"></i>Cancelar</a>
+    </form>
+  </div>
+{% endblock main %}
+
+<!--<button type="submit" class="btn btn_outline-secondary btn-lg"
+         form="person" value="Deletar"><i class="bi bi-trash3"></i>
+      Sim, deletar</button>--!/>

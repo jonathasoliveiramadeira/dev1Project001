@@ -27,3 +27,27 @@ class SearchView(View):
                 'query': query
             }
         return render(request, 'search/results.html', context)
+
+
+def buscar(request):
+    try:
+        if request.method == "GET":
+            resultados = {}
+            query = request.GET.get('query')
+            exemplos = Person.objects.find_by_name(query)
+            if len(exemplos) == 0:
+                raise Http404('No exemplos')
+            resultados_exemplos = []
+            for exemplo in exemplos:
+                url = ""
+                resultados_exemplos.append((url, exemplo))
+            resultados["Exemplo"] = resultados_exemplos
+            context = {
+                'results': resultados,
+                'query': query,
+            }
+    except:
+        context = {
+            'query': query
+        }
+    return render(request, 'search/results.html', context)
